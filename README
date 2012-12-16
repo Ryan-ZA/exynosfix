@@ -1,0 +1,10 @@
+Hoy
+
+This is a very simple app that lets you toggle world access permissions to the file /dev/exynos-mem
+
+This file is incorrectly set to world accessible by Samsung, and malicious code can use this to gain root access to your device and blow up anything they want.
+
+The app requires that your device be rooted in order to modify the permissions of this file.
+
+I HIGHLY RECOMMEND YOU DO NOT LEAVE YOUR DEVICE IN A VULNERABLE STATE !
+You can build this from source (if paranoid) or grab exynosfix.apk listed above and use the 'Fix It!' button in the app.
