@@ -1,0 +1,42 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity" >
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/textVuln"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:paddingBottom="20dp"
+            android:text="/dev/exynos-mem is vulnerable!"
+            android:gravity="center"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:shadowDx="2"
+            android:shadowDy="2"
+            android:shadowRadius="2"
+            android:shadowColor="#FF000000" />
+
+        <Button
+            android:id="@+id/buttonFix"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Fix It!" />
+
+        <Button
+            android:id="@+id/buttonUnFix"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Un Fix It!" />
+    </LinearLayout>
+
+</RelativeLayout>
