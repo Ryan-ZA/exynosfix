@@ -31,13 +31,18 @@ public class MainActivity extends Activity {
 	}
 
 	private void checkIfVuln() {
-		VTCommandResult r = VirtualTerminal.run("ls -l /dev/exynos-mem", true);
-		if (r.stdout.contains("rw-rw-rw-")) {
-			textVuln.setText("/dev/exynos-mem is vulnerable!");
-			textVuln.setTextColor(Color.RED);
-		} else {
-			textVuln.setText("/dev/exynos-mem is NOT vulnerable!");
-			textVuln.setTextColor(Color.GREEN);
+		try {
+			VTCommandResult r = VirtualTerminal.run("ls -l /dev/exynos-mem", true);
+			if (r.stdout.contains("rw-rw-rw-")) {
+				textVuln.setText("/dev/exynos-mem is vulnerable!");
+				textVuln.setTextColor(Color.RED);
+			} else {
+				textVuln.setText("/dev/exynos-mem is NOT vulnerable!");
+				textVuln.setTextColor(Color.GREEN);
+			}
+		} catch (Exception ex) {
+			textVuln.setText("Unable to determine vulnerability status - is your device rooted?");
+			textVuln.setTextColor(Color.YELLOW);
 		}
 	}
 
@@ -57,7 +62,7 @@ public class MainActivity extends Activity {
 
 		@Override
 		public void onClick(View v) {
-			VTCommandResult r = VirtualTerminal.run("chmod 644 /dev/exynos-mem", true);
+			VTCommandResult r = VirtualTerminal.run("chmod 666 /dev/exynos-mem", true);
 			if (!r.success()) {
 				Toast.makeText(MainActivity.this, "Error: " + r.stderr, Toast.LENGTH_LONG).show();
 			}
